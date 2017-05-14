@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import logo from '../assets/logo.svg';
+import { Avatar } from './Avatar/Component';
 import '../style/App.css';
 
-const App = ({name, changeName}) => {
-  return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Conjugator</h2>
-        </div>
-        <p><a href="https://travis-ci.org/llipio/conjugator"><img src="https://travis-ci.org/llipio/conjugator.svg?branch=master" alt="Build Status" /></a></p>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          Name: {name}
-        </p>
-        <button onClick={ () => {
-          changeName();
-        } }>Change Name</button>
+const App = ({position, changeIndex, speed, avatarId=Date.now()}) => {
+  const buttons = [];
+  const choices = new Array(21);
+  choices.fill(1);
+  choices.forEach( (e, i) => {
+    buttons.push(
+      <div>
+        <button key={i} onClick={() => { changeIndex(avatarId, i); }}>{i}</button>
       </div>
+    );
+  });
+
+  return (
+<div className="App">
+  <Avatar speed={10} position={position}/>
+  {buttons}
+</div>
   );
 }
 

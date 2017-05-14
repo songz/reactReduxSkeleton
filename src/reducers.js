@@ -1,24 +1,25 @@
 import { combineReducers } from 'redux';
 
-const names = ['song', 'yoojin', 'maricris', 'betty', 'phillip', 'manik', 'cecil', 'billma', 'manik', 'tri'];
-
-const getRandomName = () => {
-  return names[Math.floor(Math.random() * names.length)];
-};
-
-const appState = (state = {
-  name: getRandomName()
+const avatar = (state = {
+  position: 0,
+  speed: 1
 }, action) => {
   switch (action.type) {
-    case 'NAME_CHANGE':
-      return Object.assign({}, state, { name: getRandomName() });
+    case 'AVATAR_POSITION_CHANGE':
+      return Object.assign({}, state, {
+        position: action.position 
+      });
+    case 'AVATAR_SPEED_CHANGE':
+      return Object.assign({}, state, {
+        position: action.position 
+      });
     default:
       return state;
   }
 };
 
 const appReducers = combineReducers({
-  appState,
+  avatar,
 });
 
 export default appReducers;

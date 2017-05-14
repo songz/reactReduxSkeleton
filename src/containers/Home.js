@@ -2,13 +2,15 @@ import { connect } from 'react-redux';
 
 const generateHomeContainer = connect((state) => {
   return {
-    name: state.appState.name
+    position: state.avatar.position || 0,
   }
 }, (dispatch) => {
   return {
-    changeName: () => {
+    changeIndex: (id, index) => {
       dispatch({
-        type: 'NAME_CHANGE'
+        type: 'AVATAR_POSITION_CHANGE',
+        id: id,
+        position: index
       });
     }
   };
