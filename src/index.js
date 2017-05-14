@@ -4,15 +4,16 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import App from './components/App';
 import appReducers from './reducers';
-import { generateAppContainer } from './containers/App';
+import { generateHomeContainer } from './containers/Home';
 import './style/index.css';
 
-const AppContainer = generateAppContainer(App);
 let store = createStore(appReducers)
+
+const Home = generateHomeContainer(App);
 
 ReactDOM.render(
   <Provider store={store}>
-    <AppContainer />
+    <Home />
   </Provider>,
   document.getElementById('root')
 );
