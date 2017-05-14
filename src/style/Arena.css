@@ -1,0 +1,23 @@
+.Game-layout {
+  position: relative;
+  width: 700px;
+  height: 525px;
+  background: url('/Arena.jpg');
+  margin: auto;
+}
+
+.Game-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 250px;
+}
+
+.Game-arena {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: green;
+}
+
