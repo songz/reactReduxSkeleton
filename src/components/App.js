@@ -39,9 +39,6 @@ name, editUserInfo, saveUserInfo }) => {
       removeBullets();
     }}>RE-START</button>
   </div>
-
-
-</div>
   );
 }
 
