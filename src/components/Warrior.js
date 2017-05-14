@@ -16,7 +16,7 @@ const Warrior = ({name, position, speed, pose, direction}) => {
 
   return (
     <div className='Warrior' style={warriorPosition}>
-      <Avatar speed={speed} position={avatarPosition}/>
+      <Avatar speed={speed} position={avatarPosition} avatarId={name}/>
       <p>{name}</p>
     </div>
   );

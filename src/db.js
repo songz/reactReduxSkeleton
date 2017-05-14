@@ -7,7 +7,7 @@ const setWarriorsProperty = (id, obj) => {
 }
 
 const createWarrior = (obj) => {
-  return firebase.database().ref(`warriors/`).push(obj);
+  return firebase.database().ref(`warriors/${obj.name}`).set(obj);
 }
 
 const removeWarriors = () => {

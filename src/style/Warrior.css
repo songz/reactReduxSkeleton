@@ -4,6 +4,11 @@
   height: 64px;
 }
 
+.Warrior p {
+  margin: 3px;
+  text-align: center;
+}
+
 .Bullet {
   position: absolute;
   width: 20px;

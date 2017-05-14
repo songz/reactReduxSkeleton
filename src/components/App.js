@@ -10,10 +10,22 @@ import Game from './Game';
 
 const GameContainer = generateGameContainer(Game);
 
-const App = ({ position, changeIndex, speed, avatarId=Date.now(), updatePhysics,
-name, editUserInfo, saveUserInfo, id, onKeyDown}) => {
+let rawApp = true;
+let myName = '';
 
-    document.addEventListener("keydown", (event) => { onKeyDown(id, event) });
+const App = ({ id, name, editUserInfo, saveUserInfo, onKeyDown}) => {
+  // id is only created when user has been created
+  if (id) {
+    myName = id;
+  }
+  if (rawApp) {
+    document.addEventListener("keydown", (event) => {
+      if (myName) {
+        onKeyDown(myName, event);
+      }
+    }); 
+    rawApp = false;
+  }
   return (
   <div className="row">
     <label htmlFor="name">SIGN UP:</label>
