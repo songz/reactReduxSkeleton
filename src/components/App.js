@@ -3,7 +3,7 @@ import logo from '../assets/logo.svg';
 import { Avatar } from './Avatar/Component';
 import '../style/App.css';
 import { setWarriorsProperty, createWarrior, setBulletProperty,
-createBullet, bindWarriorChanges, bindBulletChanges } from '../db';
+createBullet, bindWarriorChanges, bindBulletChanges, removeWarriors, removeBullets } from '../db';
 import { generateHomeContainer } from '../containers/Home';
 
 const App = ({ position, changeIndex, speed, avatarId=Date.now(), updatePhysics,
@@ -33,6 +33,13 @@ name, editUserInfo, saveUserInfo }) => {
       saveUserInfo(name);
     }}>START</button>
   </div>
+  <div className="row text-center">
+  <button onClick = { () => {
+      removeWarriors();
+      removeBullets();
+    }}>RE-START</button>
+  </div>
+
 
 </div>
   );

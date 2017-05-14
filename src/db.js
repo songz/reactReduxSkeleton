@@ -10,12 +10,20 @@ const createWarrior = (obj) => {
   return firebase.database().ref(`warriors/`).push(obj);
 }
 
+const removeWarriors = () => {
+  return firebase.database().ref('warriors/').remove();
+}
+
 const setBulletProperty = (obj) => {
   return firebase.database().ref('bullets/').set(obj);
 }
 
 const createBullet = (obj) => {
   return firebase.database().ref('bullets/').push(obj);
+}
+
+const removeBullets = () => {
+  return firebase.database().ref('bullets/').remove();
 }
 
 const bindWarriorChanges = (cb) => {
@@ -27,4 +35,4 @@ const bindBulletChanges = (cb) => {
 }
 
 export { setWarriorsProperty, createWarrior, setBulletProperty, createBullet,
-bindWarriorChanges, bindBulletChanges };
+bindWarriorChanges, bindBulletChanges, removeBullets, removeWarriors };
