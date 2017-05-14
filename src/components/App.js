@@ -24,8 +24,8 @@ const App = ({}) => {
   }
   return (
 <div className="App">
-  <Warrior position={position} speed={10} pose={9} name={'Daniel'}/>
-  <Warrior position={position2} speed={5} pose={5} name={'Maricris'}/>
+  <Warrior position={position} speed={10} pose={4} direction={3} name={'Daniel'}/>
+  <Warrior position={position2} speed={5} pose={1} direction={1} name={'Maricris'}/>
   <Bullet position={position3}/>
   <Bullet position={position4}/>
 </div>
