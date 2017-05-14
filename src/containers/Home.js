@@ -9,12 +9,11 @@ const generateHomeContainer = connect((state) => {
   }
 }, (dispatch) => {
   return {
-    changeIndex: (id, index) => {
+    onKeyDown: (event) => {
       dispatch({
-        type: 'AVATAR_POSITION_CHANGE',
-        id: id,
-        position: index
-      });
+        type: 'AVATAR_MOVE',
+        direction: event.key
+      })
     },
     updatePhysics: () => {
       dispatch({
