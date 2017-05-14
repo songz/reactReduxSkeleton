@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from '../assets/logo.svg';
 import { Avatar } from './Avatar/Component';
 import '../style/App.css';
-
+import Warrior from './Warrior.js'
 const App = ({position, changeIndex, speed, avatarId=Date.now()}) => {
   const buttons = [];
   const choices = new Array(21);
