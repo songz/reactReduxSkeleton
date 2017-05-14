@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from '../assets/logo.svg';
 import { Avatar } from './Avatar/Component';
 import '../style/App.css';
+import { setWarriorsProperty, createWarrior, setBulletProperty,
+createBullet, bindWarriorChanges, bindBulletChanges } from '../db';
 
 const App = ({position, changeIndex, speed, avatarId=Date.now()}) => {
   const buttons = [];
