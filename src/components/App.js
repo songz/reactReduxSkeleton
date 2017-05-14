@@ -2,23 +2,32 @@ import React, { Component } from 'react';
 import logo from '../assets/logo.svg';
 import { Avatar } from './Avatar/Component';
 import '../style/App.css';
+import Warrior from './Warrior.js'
+import Bullet from './Bullet.js'
 
-const App = ({position, changeIndex, speed, avatarId=Date.now()}) => {
-  const buttons = [];
-  const choices = new Array(21);
-  choices.fill(1);
-  choices.forEach( (e, i) => {
-    buttons.push(
-      <div>
-        <button key={i} onClick={() => { changeIndex(avatarId, i); }}>{i}</button>
-      </div>
-    );
-  });
-
+const App = ({}) => {
+  let position = {
+    x: 100,
+    y: 200
+  }
+  let position2 = {
+    x: 1000,
+    y: 200
+  }
+  let position3 = {
+    x: 300,
+    y: 300
+  }
+  let position4 = {
+    x: 900,
+    y: 300
+  }
   return (
 <div className="App">
-  <Avatar speed={10} position={position}/>
-  {buttons}
+  <Warrior position={position} speed={10} pose={4} direction={3} name={'Daniel'}/>
+  <Warrior position={position2} speed={5} pose={1} direction={1} name={'Maricris'}/>
+  <Bullet position={position3}/>
+  <Bullet position={position4}/>
 </div>
   );
 }
