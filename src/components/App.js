@@ -2,33 +2,43 @@ import React, { Component } from 'react';
 import logo from '../assets/logo.svg';
 import { Avatar } from './Avatar/Component';
 import '../style/App.css';
-import Warrior from './Warrior.js'
-import Bullet from './Bullet.js'
+import { setWarriorsProperty, createWarrior, setBulletProperty,
+createBullet, bindWarriorChanges, bindBulletChanges, removeWarriors, removeBullets } from '../db';
+import { generateHomeContainer } from '../containers/Home';
 
-const App = ({}) => {
-  let position = {
-    x: 100,
-    y: 200
-  }
-  let position2 = {
-    x: 1000,
-    y: 200
-  }
-  let position3 = {
-    x: 300,
-    y: 300
-  }
-  let position4 = {
-    x: 900,
-    y: 300
-  }
+const App = ({ position, changeIndex, speed, avatarId=Date.now(), updatePhysics,
+name, editUserInfo, saveUserInfo }) => {
+  const buttons = [];
+  const choices = new Array(21);
+  choices.fill(1);
+  choices.forEach( (e, i) => {
+    buttons.push(
+      <div>
+        <button key={i} onClick={() => { changeIndex(avatarId, i); }}>{i}</button>
+      </div>
+    );
+  });
+  // setInterval(() => {
+    // updatePhysics();
+  // }, 1000);
   return (
-<div className="App">
-  <Warrior position={position} speed={10} pose={4} direction={3} name={'Daniel'}/>
-  <Warrior position={position2} speed={5} pose={1} direction={1} name={'Maricris'}/>
-  <Bullet position={position3}/>
-  <Bullet position={position4}/>
-</div>
+  <div className="row">
+  <div className="form-group">
+  <label htmlFor="name">SIGN UP:</label>
+  <input placeholder="Big Head" value = { name }
+  onChange = { (v) => { editUserInfo('name', v.target.value); } }/>
+  </div>
+  <div className="row text-center">
+  <button onClick = { () => {
+      saveUserInfo(name);
+    }}>START</button>
+  </div>
+  <div className="row text-center">
+  <button onClick = { () => {
+      removeWarriors();
+      removeBullets();
+    }}>RE-START</button>
+  </div>
   );
 }
 
