@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './Avatar.css';
 
 const spriteHeight = 64;
 const spriteWidth = 64;
@@ -28,14 +27,17 @@ const spriteMap = {
   20: 6,
 };
 
-const Avatar = ({position, speed, avatarId=Date.now()}) => {
+const Avatar = ({position, speed, avatarPath='/avatar.png', avatarId=Date.now()}) => {
   const speedTime = 5/speed;
 
   let styleSheet = document.styleSheets[0];
   const steps = spriteMap[position];
 
   const style = {
-    animation: `play${position}aid${avatarId} ${speedTime}s steps(${steps}) infinite`
+    animation: `play${position}aid${avatarId} ${speedTime}s steps(${steps}) infinite`,
+    width: '64px',
+    height: '64px',
+    background: `url(${avatarPath})`,
   };
 
   const choices = new Array(21);
