@@ -7,9 +7,7 @@ const generateHomeContainer = connect((state) => {
 }, (dispatch) => {
   return {
     changeName: () => {
-      dispatch({
-        type: 'NAME_CHANGE'
-      });
+      dispatch({});
     }
   };
 });
