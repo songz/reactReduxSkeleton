@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 const appState = (state = {
-  name: 'yoojin'
+  name: 'songz'
 }, action) => {
   switch (action.type) {
     default:
